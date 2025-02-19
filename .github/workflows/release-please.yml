@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: check for proper rc tag (or main)
         run: |
-          if [[ "${GITHUB_REF#refs/heads/}" =~ ^(main|rc\d+(\.\d+)*)$ ]]; then
+          if [[ "${GITHUB_REF#refs/heads/}" =~ ^(main|rc[0-9]+(\.[0-9]+)*)$ ]]; then
             echo "Valid branch format!"
           else
             echo "Invalid branch format for rc branch!"
