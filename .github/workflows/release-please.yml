@@ -26,3 +26,5 @@ jobs:
         with:
           token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
           release-type: simple
+          target-branch: ${{ github.ref_name }}
+
