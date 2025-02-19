@@ -10,5 +10,6 @@ See [.github/workflows](.github/workflows):
 
 ## behavior of release-please with rc branches
 
-What happens when a release-please PR is merged on an `rc` (release candidate) branch? When you then make another release from a different `rc` branch, does it properly include the release from the last merge? Is the changelog updated correctly, including on main?
+* What happens when a release-please PR is merged on an `rc` (release candidate) branch? When you then make another release from a different `rc` branch, does it properly include the release from the last merge? Is the changelog updated correctly, including on main?
+* force pushes work as expected
 
