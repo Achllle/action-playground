@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.1](https://github.com/Achllle/action-playground/compare/v5.0.0...v5.0.1) (2025-03-18)
+
+
+### Bug Fixes
+
+* try committing on main and 'backporting' ([93ab7c2](https://github.com/Achllle/action-playground/commit/93ab7c260d3293fa557da7ac90e16c5cc870e034))
+
 ## [5.0.0](https://github.com/Achllle/action-playground/compare/v4.0.0...v5.0.0) (2025-03-18)
 
 
