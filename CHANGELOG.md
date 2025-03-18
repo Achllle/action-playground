@@ -1,5 +1,21 @@
 # Changelog
 
+## [4.0.0](https://github.com/Achllle/action-playground/compare/v3.0.0...v4.0.0) (2025-03-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* dummy breaking change to force v4
+
+### Features
+
+* dummy breaking change to force v4 ([2e2ee31](https://github.com/Achllle/action-playground/commit/2e2ee31179548fc4730f1bd6014ee4341af2846c))
+
+
+### Bug Fixes
+
+* dummy fix that will be backported to rc4 ([4666c47](https://github.com/Achllle/action-playground/commit/4666c47e225db3a3afc54fdd0445aa8ebc6b682b))
+
 ## [3.0.0](https://github.com/Achllle/action-playground/compare/v2.0.0...v3.0.0) (2025-02-20)
 
 
