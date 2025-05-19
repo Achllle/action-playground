@@ -11,5 +11,5 @@ See [.github/workflows](.github/workflows):
   * using target-branch: main for all release PRs also doesn't produce the intended behavior. Releases triggered from RC branches skip all commits for some reason
   * tried splitting up strategy: release _candidate_ PR from main, then releases from rc branches _into_ main. Not supported well. Total mess, finnicky.
   * trying to just run release-please on rc branches with target to main. Doesn't work like that because the action doesn't run again when the PR is created since it doesn't run on main...
-  * trying to run with two separate actions again on main, but this time not to create release candidate but instead to just create the release tag and release. Final test.
-  * 
+  * trying to run with two separate actions again on main, but this time not to create release candidate but instead to just create the release tag and release. Failed, it considered a breaking change on main that didn't exist in the rc branch for the release: #18
+  * trying to separate branches again
