@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.1.0](https://github.com/Achllle/action-playground/compare/v8.0.0...v8.1.0) (2025-05-19)
+
+
+### Features
+
+* don't use target-branch main on rc github action ([b7d2cab](https://github.com/Achllle/action-playground/commit/b7d2cabe94045d39019d5474acb039f0ed2185cd))
+
 ## [8.0.0](https://github.com/Achllle/action-playground/compare/v7.2.0...v8.0.0) (2025-05-19)
 
 
