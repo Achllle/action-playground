@@ -1,5 +1,17 @@
 # Changelog
 
+## [7.1.0](https://github.com/Achllle/action-playground/compare/v7.0.0...v7.1.0) (2025-05-19)
+
+
+### Features
+
+* comment out release candidate for now ([41fb765](https://github.com/Achllle/action-playground/commit/41fb7653a3ff01914c925f49f5af4a556a0dd4bc))
+
+
+### Bug Fixes
+
+* docs ([47be723](https://github.com/Achllle/action-playground/commit/47be723126af483748ba100d33ca3072312cf406))
+
 ## [7.0.0](https://github.com/Achllle/action-playground/compare/v6.0.0...v7.0.0) (2025-05-19)
 
 
