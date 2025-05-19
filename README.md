@@ -10,3 +10,4 @@ See [.github/workflows](.github/workflows):
   * conclusion: not worth it, this repo is poorly maintained and doesn't support any workflow that deviates from a simple single-branch release process. Ugh.
   * using target-branch: main for all release PRs also doesn't produce the intended behavior. Releases triggered from RC branches skip all commits for some reason
   * tried splitting up strategy: release _candidate_ PR from main, then releases from rc branches _into_ main. Not supported well. Total mess, finnicky.
+  * trying to just run release-please on rc branches with target to main
