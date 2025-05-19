@@ -1,5 +1,21 @@
 # Changelog
 
+## [6.0.0](https://github.com/Achllle/action-playground/compare/v5.0.1...v6.0.0) (2025-05-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* split up actions into rc and release
+
+### Features
+
+* split up actions into rc and release ([bd8abc7](https://github.com/Achllle/action-playground/commit/bd8abc75f19942a0eb7fd14d060db6df537034f2))
+
+
+### Bug Fixes
+
+* dummy commit ([0b191aa](https://github.com/Achllle/action-playground/commit/0b191aac1a3d301da704e05e893a1058d6825d20))
+
 ## [5.0.1](https://github.com/Achllle/action-playground/compare/v5.0.0...v5.0.1) (2025-03-18)
 
 
