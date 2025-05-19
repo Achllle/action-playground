@@ -1,5 +1,22 @@
 # Changelog
 
+## [8.0.0](https://github.com/Achllle/action-playground/compare/v7.2.0...v8.0.0) (2025-05-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* dummy breaking change!
+
+### Features
+
+* dummy feat ([be82ab2](https://github.com/Achllle/action-playground/commit/be82ab2e5efa49bbd67ce9b10a1db9f603733d52))
+
+
+### Bug Fixes
+
+* dummy breaking change! ([b262a3d](https://github.com/Achllle/action-playground/commit/b262a3d0a332334dca8b4e4cb9dd81949c48562e))
+* dummy change ([3e13206](https://github.com/Achllle/action-playground/commit/3e132067b6c900006d721c07733117b70b112edd))
+
 ## [7.2.0](https://github.com/Achllle/action-playground/compare/v7.1.0...v7.2.0) (2025-05-19)
 
 
