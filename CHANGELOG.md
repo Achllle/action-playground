@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.1.1](https://github.com/Achllle/action-playground/compare/v8.1.0...v8.1.1) (2025-05-19)
+
+
+### Bug Fixes
+
+* dummy ([5661ae5](https://github.com/Achllle/action-playground/commit/5661ae5789659f9683e37824f01dea89087a7c11))
+
 ## [8.1.0](https://github.com/Achllle/action-playground/compare/v8.0.0...v8.1.0) (2025-05-19)
 
 
