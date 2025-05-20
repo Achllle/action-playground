@@ -1,5 +1,13 @@
 # Changelog
 
+## [8.1.2](https://github.com/Achllle/action-playground/compare/v8.1.1...v8.1.2) (2025-05-20)
+
+
+### Bug Fixes
+
+* add period ([1fc9563](https://github.com/Achllle/action-playground/commit/1fc956350fdb02a2847cc66e99aa1437a1741f5d))
+* another period ([66e4274](https://github.com/Achllle/action-playground/commit/66e42744745c61b6101e17e2b7276ac5f8e33b09))
+
 ## [8.1.1](https://github.com/Achllle/action-playground/compare/v8.1.0...v8.1.1) (2025-05-19)
 
 
