@@ -1,5 +1,20 @@
 # Changelog
 
+## [8.2.0](https://github.com/Achllle/action-playground/compare/v8.1.1...v8.2.0) (2025-05-20)
+
+
+### Features
+
+* add empty line ([d2b0e57](https://github.com/Achllle/action-playground/commit/d2b0e57f19863e87de9b1f2de18bee3b0bf6b57e))
+* manifest dummy ([0d8e2d8](https://github.com/Achllle/action-playground/commit/0d8e2d84dc85d8ddb70a9ab26c9e4df2de4c0c8f))
+
+
+### Bug Fixes
+
+* add period ([1fc9563](https://github.com/Achllle/action-playground/commit/1fc956350fdb02a2847cc66e99aa1437a1741f5d))
+* another period ([66e4274](https://github.com/Achllle/action-playground/commit/66e42744745c61b6101e17e2b7276ac5f8e33b09))
+* dummy manifest p2 ([e7e0dce](https://github.com/Achllle/action-playground/commit/e7e0dce47f99beab67b1ab237524f44cc07db66e))
+
 ## [8.1.1](https://github.com/Achllle/action-playground/compare/v8.1.0...v8.1.1) (2025-05-19)
 
 
