@@ -26,4 +26,5 @@ jobs:
           token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
           release-type: simple
           skip-github-release: true
+          target-branch: ${{ github.ref_name }}
 
