@@ -1,6 +1,6 @@
 # action-playground
 
-For testing github actions!
+For testing github actions.
 
 See [.github/workflows](.github/workflows):
 
