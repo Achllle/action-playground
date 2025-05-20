@@ -15,4 +15,4 @@ See [.github/workflows](.github/workflows):
   * trying to run with two separate actions again on main, but this time not to create release candidate but instead to just create the release tag and release. Failed, it considered a breaking change on main that didn't exist in the rc branch for the release: #18
   * trying to separate branches again.
   * trying to set target branch unset - didn't work either
-  * final try: manifest file hacking
+  * final try: manifest file hacking - meh
