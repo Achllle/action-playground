@@ -13,6 +13,7 @@ concurrency:
 permissions:
   contents: read  # NOTE; you will need to change this permission to `write` in case you do not provide the `include-commits` input parameter.
   issues: write  # needed for writing labels to PR
+  pull-requests: write
 
 jobs:
   commit-me:
