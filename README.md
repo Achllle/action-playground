@@ -15,3 +15,4 @@ See [.github/workflows](.github/workflows):
   * trying to separate branches again.
   * trying to set target branch unset - didn't work either
   * final try: manifest file hacking - with fully isolated releases in rc branches. Fully give up, it's just too finnicky. When I had created a manual release and tag it didn't recognize that and somehow tried to release under the existing release which ofcourse failed.
+
