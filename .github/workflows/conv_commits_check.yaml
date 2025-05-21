@@ -4,6 +4,7 @@ on:
     types:
       - opened
       - edited
+      - synchronize
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number }}  # Ensure that only one instance of this workflow is running per Pull Request
