@@ -21,7 +21,7 @@ jobs:
       # Enable colored output in GitHub Actions
       FORCE_COLOR: 3
     steps:
-      - uses: dev-build-deploy/commit-me@3e4b058
+      - uses: dev-build-deploy/commit-me@v1.5.0
         with:
           update-labels: false  # OPTIONAL; do not update the Pull Request labels based on the Conventional Commits information.
           include-commits: false  # OPTIONAL; enforces the exclusion of commits associated with your Pull Request
