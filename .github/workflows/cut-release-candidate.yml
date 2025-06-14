@@ -35,3 +35,4 @@ jobs:
             git checkout -b "$RC_BRANCH"
             git push origin "$RC_BRANCH"
             git tag ${{ steps.semver.outputs.next }}-alpha1 -m "Release candidate for version ${{ steps.semver.outputs.next }}"
+            git push --tags
