@@ -39,9 +39,24 @@ jobs:
               echo "Major or minor update detected - only patches are allowed - not releasing! (bump is: ${{ steps.semver.outputs.bump }})"
               exit 1
             fi
+            if [[ ! "${{ steps.semver.outputs.current }}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+-alpha[0-9]+$ ]]; then
+              echo "Version '${{ steps.semver.outputs.current }}' does not match required format (e.g. v1.2.3-alpha1)"
+              exit 1
+            fi
             git config --global user.email "sw-bots@graymatter-robotics.com"
             git config --global user.name "GaryMatters"
             if [[ "${{ steps.semver.outputs.bump }}" == "none" ]]; then
               echo "No patch update detected - overwriting existing alpha version!"
               git tag ${{ steps.semver.outputs.current }} -f -m "Release candidate for version ${{ steps.semver.outputs.current }}"
+              git push --tags --force
+            fi
+            else
+              # Increment the alpha version by one
+              current_version="${{ steps.semver.outputs.current }}"
+              base_version=$(echo "$current_version" | sed -E 's/-alpha[0-9]+$//')
+              current_alpha=$(echo "$current_version" | grep -oE 'alpha[0-9]+' | grep -oE '[0-9]+')
+              next_alpha=$((current_alpha + 1))
+              next_version="${base_version}-alpha${next_alpha}"
+              git tag "$next_version" -m "Release candidate for version $next_version"
+              git push --tags
             fi
