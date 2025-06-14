@@ -30,6 +30,8 @@ jobs:
               echo "Major or minor update detected - only patches are allowed - not releasing! (bump is: ${{ steps.semver.outputs.bump }})"
               exit 1
             fi
+            git config --global user.email "sw-bots@graymatter-robotics.com"
+            git config --global user.name "GaryMatters"
             if [[ "${{ steps.semver.outputs.bump }}" == "none" ]]; then
               echo "No patch update detected - overwriting existing alpha version!"
               git tag ${{ steps.semver.outputs.current }} -f -m "Release candidate for version ${{ steps.semver.outputs.current }}"

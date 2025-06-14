@@ -30,6 +30,8 @@ jobs:
             fi
             echo "Cutting release candidate for version ${{ steps.semver.outputs.next }} - last was ${{ steps.semver.outputs.current }}"
             RC_BRANCH="rc$(echo ${{ steps.semver.outputs.nextStrict }} | awk -F. '{print $1"."$2}')"
+            git config --global user.email "sw-bots@graymatter-robotics.com"
+            git config --global user.name "GaryMatters"
             git checkout -b "$RC_BRANCH"
             git push origin "$RC_BRANCH"
             git tag ${{ steps.semver.outputs.next }}-alpha1 -m "Release candidate for version ${{ steps.semver.outputs.next }}"
