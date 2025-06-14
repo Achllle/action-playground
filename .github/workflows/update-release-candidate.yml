@@ -49,7 +49,6 @@ jobs:
               echo "No patch update detected - overwriting existing alpha version!"
               git tag ${{ steps.semver.outputs.current }} -f -m "Release candidate for version ${{ steps.semver.outputs.current }}"
               git push --tags --force
-            fi
             else
               # Increment the alpha version by one
               current_version="${{ steps.semver.outputs.current }}"
