@@ -1,0 +1,32 @@
+# determines the next SemVer based on the last one (manually fed in for now to allow for cutting a release branch when the last one has not been released yet))
+# should only be run from the main branch
+name: Cut Release Candidate 
+on:
+  workflow_dispatch:
+
+jobs:
+    cut-release-candidate:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v3
+
+        - name: Determine Next SemVer
+          id: semver
+          uses: ietf-tools/semver-action@v1
+          with:
+            token: ${{ github.token }}
+            branch: main
+            noVersionBumpBehavior: "current"
+
+        - name: Cut Release Candidate
+          run: |
+            if [[ "${{ steps.semver.outputs.bump }}" == "patch" || "${{ steps.semver.outputs.bump }}" == "none" ]]; then
+              echo "Release branches are only cut for major or minor version increases, exiting. (bump is: ${{ steps.semver.outputs.bump }})"
+              exit 1
+            fi
+            echo "Cutting release candidate for version ${{ steps.semver.outputs.next }} - last was ${{ steps.semver.outputs.current }}"
+            RC_BRANCH="rc$(echo ${{ steps.semver.outputs.nextStrict }} | awk -F. '{print $1"."$2}')"
+            git checkout -b "$RC_BRANCH"
+            git push origin "$RC_BRANCH"
+            git tag ${{ steps.semver.outputs.next }}-alpha1 -m "Release candidate for version ${{ steps.semver.outputs.next }}"

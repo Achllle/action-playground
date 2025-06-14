@@ -1,0 +1,33 @@
+# bumps the release candidate alpha version after an rc branch has already been cut
+# should only be run from the main branch
+name: Update Release Candidate 
+on:
+  push:
+    branches:
+      - rc'[0-9]+.[0-9]+'
+
+jobs:
+    bump-release-candidate:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v3
+
+        - name: Determine Next SemVer
+          id: semver
+          uses: ietf-tools/semver-action@v1
+          with:
+            token: ${{ github.token }}
+            branch: ${{ github.ref_name }}
+            noVersionBumpBehavior: "current"
+
+        - name: Bump Release Candidate
+          run: |
+            if [[ "${{ steps.semver.outputs.bump }}" == "major" || "${{ steps.semver.outputs.bump }}" == "minor" ]]; then
+              echo "Major or minor update detected - only patches are allowed - not releasing! (bump is: ${{ steps.semver.outputs.bump }})"
+              exit 1
+            fi
+            if [[ "${{ steps.semver.outputs.bump }}" == "none" ]]; then
+              echo "No patch update detected - overwriting existing alpha version!"
+              git tag ${{ steps.semver.outputs.current }} -f -m "Release candidate for version ${{ steps.semver.outputs.current }}"
+            fi
