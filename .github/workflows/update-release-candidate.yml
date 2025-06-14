@@ -4,7 +4,7 @@ name: Update Release Candidate
 on:
   push:
     branches:
-      - rc'[0-9]+.[0-9]+'
+      - rc*
 
 permissions:
     contents: write
@@ -13,6 +13,15 @@ jobs:
     bump-release-candidate:
       runs-on: ubuntu-latest
       steps:
+        - name: check for proper rc tag
+          run: |
+            if [[ "${GITHUB_REF#refs/heads/}" =~ ^(rc[0-9]+(\.[0-9]+)*)$ ]]; then
+                echo "Valid branch format!"
+            else
+                echo "Invalid branch format for rc branch!"
+                exit 1
+            fi
+
         - name: Checkout code
           uses: actions/checkout@v3
 
