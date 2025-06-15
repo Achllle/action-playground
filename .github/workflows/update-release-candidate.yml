@@ -1,4 +1,5 @@
 # bumps the release candidate alpha version after an rc branch has already been cut
+# v1.2.3-alpha1 -> v1.2.3-alpha2 and v1.2.3 -> v1.2.4-alpha1 (note the 4)
 # should only be run from the main branch
 name: Update Release Candidate 
 on:
@@ -33,29 +34,37 @@ jobs:
             branch: ${{ github.ref_name }}
             noVersionBumpBehavior: "current"
 
+        # the current SemVer is either X.Y.Z-alphaN or X.Y.Z 
+        # if -alphaN is present, create -alphaN+1, otherwise create X.Y.Z+1-alpha1
         - name: Bump Release Candidate
           run: |
             if [[ "${{ steps.semver.outputs.bump }}" == "major" || "${{ steps.semver.outputs.bump }}" == "minor" ]]; then
               echo "Major or minor update detected - only patches are allowed - not releasing! (bump is: ${{ steps.semver.outputs.bump }})"
               exit 1
             fi
-            if [[ ! "${{ steps.semver.outputs.current }}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+-alpha[0-9]+$ ]]; then
-              echo "Version '${{ steps.semver.outputs.current }}' does not match required format (e.g. v1.2.3-alpha1)"
-              exit 1
-            fi
             git config --global user.email "sw-bots@graymatter-robotics.com"
             git config --global user.name "GaryMatters"
-            if [[ "${{ steps.semver.outputs.current }}" == ${{ steps.semver.outputs.next }} ]]; then
-              echo "No patch update detected - overwriting existing alpha version!"
-              git tag ${{ steps.semver.outputs.current }} -f -m "Release candidate for version ${{ steps.semver.outputs.current }}"
-              git push --tags --force
+
+            is_proper=$([[ "${{ steps.semver.outputs.current }}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] && echo true || echo false)
+            is_alpha=$([[ "${{ steps.semver.outputs.current }}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+-alpha[0-9]+$ ]] && echo true || echo false)
+
+            if [[ "$is_proper" == false && "$is_alpha" == false ]]; then
+              echo "Version '${{ steps.semver.outputs.current }}' does not match required format (e.g. v1.2.3 or v1.2.3-alpha1)"
+              exit 1            
+            fi
+
+            # Increment the alpha version by one if it exists, otherwise use the next patch version and start with alpha1
+            if [[ "$is_proper" == true ]]; then
+              echo "Current version is a proper release, incrementing and adding alpha1"
+              next_version="${{ steps.semver.outputs.next }}-alpha1"
             else
-              # Increment the alpha version by one
+              echo "Current version is an alpha release, incrementing alpha version"
               current_version="${{ steps.semver.outputs.current }}"
               base_version=$(echo "$current_version" | sed -E 's/-alpha[0-9]+$//')
               current_alpha=$(echo "$current_version" | grep -oE 'alpha[0-9]+' | grep -oE '[0-9]+')
               next_alpha=$((current_alpha + 1))
               next_version="${base_version}-alpha${next_alpha}"
-              git tag "$next_version" -m "Release candidate for version $next_version"
-              git push --tags
             fi
+
+            git tag "$next_version" -m "Release candidate for version $next_version"
+            git push --tags
