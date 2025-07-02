@@ -16,6 +16,7 @@ See [.github/workflows](.github/workflows):
   * trying to set target branch unset - didn't work either
   * final try: manifest file hacking - with fully isolated releases in rc branches. Fully give up, it's just too finnicky. When I had created a manual release and tag it didn't recognize that and somehow tried to release under the existing release which ofcourse failed.
 
-* SemVer action:
+* SemVer action (ietf-tools/semver-action):
   * need to give write permissions for writing tags
-  * doesn't work with versions such as v1.2.3-alpha1 
+  * works with versions such as v1.2.3-alpha1
+  * caution: pushing a tag inside the workflow this server-action is in will not trigger a different workflow that has the `on: push: tags` event trigger (github policy to avoid accidental recursion). Either use a different PAT for the triggering workflow or better, use a `workflow_run` trigger with a check to see if the workflow run was successful.
