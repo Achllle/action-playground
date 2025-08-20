@@ -20,3 +20,4 @@ See [.github/workflows](.github/workflows):
   * need to give write permissions for writing tags
   * works with versions such as v1.2.3-alpha1
   * caution: pushing a tag inside the workflow this server-action is in will not trigger a different workflow that has the `on: push: tags` event trigger (github policy to avoid accidental recursion). Either use a different PAT for the triggering workflow or better, use a `workflow_run` trigger with a check to see if the workflow run was successful.
+  * seems like it just looks at the global latest tag, not latest tag on that branch
