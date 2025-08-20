@@ -26,6 +26,10 @@ jobs:
         - name: Checkout code
           uses: actions/checkout@v3
 
+        - name: Get Latest Tag
+          run: |
+            git describe --tags --abbrev=0
+
         - name: Determine Next SemVer
           id: semver
           uses: ietf-tools/semver-action@v1
