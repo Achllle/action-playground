@@ -26,12 +26,21 @@ jobs:
         - name: Checkout code
           uses: actions/checkout@v3
 
+        - name: Get Release Version
+          id: current_tag
+          run: |
+            git fetch --unshallow --tags --all
+            current_tag=$(git describe --tags --abbrev=0)
+            tag=$current_tag >> $GITHUB_OUTPUT
+            echo $tag
+
         - name: Determine Next SemVer
           id: semver
           uses: ietf-tools/semver-action@v1
           with:
             token: ${{ github.token }}
             branch: ${{ github.ref_name }}
+            fromTag: ${{ steps.current_tag.outputs.tag }}
             noVersionBumpBehavior: "current"
 
         # the current SemVer is either X.Y.Z-alphaN or X.Y.Z 
