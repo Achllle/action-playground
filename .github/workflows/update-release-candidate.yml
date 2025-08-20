@@ -40,7 +40,7 @@ jobs:
           with:
             token: ${{ github.token }}
             branch: ${{ github.ref_name }}
-            fromTag: ${{ steps.current_tag.outputs.tag }}
+            fromTag: "v8.3.1-alpha3" 
             noVersionBumpBehavior: "current"
 
         # the current SemVer is either X.Y.Z-alphaN or X.Y.Z 
