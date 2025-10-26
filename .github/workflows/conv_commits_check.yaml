@@ -12,6 +12,8 @@ concurrency:
 
 permissions:
   contents: read  # NOTE; you will need to change this permission to `write` in case you do not provide the `include-commits` input parameter.
+  issues: write  # needed for writing labels to PR
+  pull-requests: write
 
 jobs:
   commit-me:
@@ -24,5 +26,14 @@ jobs:
       - uses: dev-build-deploy/commit-me@v1.5.0
         with:
           token: ${{ github.token }}
-          update-labels: false  # OPTIONAL; do not update the Pull Request labels based on the Conventional Commits information.
+          update-labels: true  # OPTIONAL; do not update the Pull Request labels based on the Conventional Commits information.
           include-commits: false  # OPTIONAL; enforces the exclusion of commits associated with your Pull Request
+          types: |
+            chore
+            ci
+            debt
+            docs
+            style
+            refactor
+            test
+
